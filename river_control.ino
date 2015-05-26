@@ -69,12 +69,12 @@ Adafruit_BMP085 bmp;
     char umidade[6];
     char temperatura[6];
 
-    if(isnan(umidade) || isnan(temperatura)){//verifica se ouve leitura do sensor
+    if(isnan(h) || isnan(t)){//verifica se ouve leitura do sensor
       Serial.println("Falha de leitura sensor dht");
     }
     else{
-      dtostrf(umidade, 1, 2, h);// copia variavel float para variavel char
-      dtostrf(temperatura, 1, 2, t);
+      dtostrf(h, 1, 2, umidade);// copia variavel float para variavel char
+      dtostrf(t, 1, 2, temperatura);
     }
 
     sprintf(send_data,"field1=%s&amp;field2=%s", umidade, temperatura);//salva na variavel os dados que serao enviados
